@@ -137,7 +137,10 @@ color:rgb(238, 235, 235);;
 /*inputs styles*/
 #form-div{
     display: flex;
-    justify-items: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 35em;
     margin-bottom: 0.5rem;  
     margin-top:  1rem;
 
@@ -376,25 +379,24 @@ display: none;
         font-size: 2em;
     }
     .artisan-room-btn, .service-btn{
-        width: 80%; /* instead of fixed 25em */
+        width: 80%; 
         height: 4em;
-    }
-    #form-div input{
-        min-width: 80%;
-        max-width: 90%;
     }
 }
     
 @media (max-width: 480px) {
+.app-name-container{
+        top: -2em;
+    }
     .hammer-wrapper {
         width: 80vw; 
         max-height: 150px;     
     }
     .hammer-open-page {
-        top: 45%;        
+        top: 120px;
+        max-height: 55vh;
         left: 50%;
-        transform: translate(-50%, -50%);
-        max-width: 150px;
+        max-width: 60vw;
     }
     @keyframes moveHammer {
     0% { transform: translate(-50%, -50%) translateY(0px) rotate(-15deg); }
@@ -403,73 +405,65 @@ display: none;
     75% { transform: translate(-50%, -50%) rotate(-5deg); }
     100% { transform: translate(-50%, -50%) rotate(-15deg); }
 }
-
+.artisan-room-btn, .service-btn{
+    min-width: 12em;
+}
+.b-text{
+font-size: 10px;
+font-weight: bolder;
+}
+.loginText{
+    font-size: 9px;
+}
+.question-mark{
+    font-size: 15pt;
+    padding: 2px;
+}
 }
 
-
-
-/* Container for the phone input */
+/* Fix wrapper */
 .iti {
-  position: relative;
-  display: inline-block;
-  width: 100%;
+    width: 100% !important;
+    max-width: 35em;
+    box-sizing: border-box;
 }
 
-/* Hide native input padding (intl-tel-input will add its own) */
+/* Move flag inward */
+.iti__selected-flag {
+    padding-left: 10px !important;
+}
+.iti--allow-dropdown {
+    position: relative;
+}
+
 .iti__flag-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  padding: 0 8px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  border-right: 1px solid #ccc;
-  background: #f9f9f9;
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 48px;
 }
 
-/* Flag icon size */
-.iti__flag {
-  width: 20px;
-  height: 15px;
-  display: inline-block;
-  background-size: cover;
+.iti__selected-flag {
+    padding-left: 12px;
 }
 
-/* Dropdown container */
-.iti__country-list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  max-height: 200px;
-  overflow-y: auto;
-  z-index: 9999;
-  background: #fff;
-  border: 1px solid #ccc;
-  display: none; /* shown when open */
-}
 
-/* Individual country item */
-.iti__country {
-  padding: 5px 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.iti__country:hover {
-  background-color: #eee;
-}
-
-/* Input padding to avoid overlap with flag */
-input.iti__input {
-  padding-left: 50px; /* adjust for flag container width */
-  height: 36px;
-  width: 100%;
-  box-sizing: border-box;
+/* OVERRIDE global input padding */
+#form-div .iti input {
+   width: 100% !important;
+    box-sizing: border-box;
 }
 
 
 
+
+@media screen and (max-width: 460px) {
+    .iti__input {
+        padding-left: 45px !important; /* small padding for small screen */
+    }
+     #form-div input {
+        min-width: 0 !important;
+        width: 100% !important;
+    }
+}
