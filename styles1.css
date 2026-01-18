@@ -385,6 +385,9 @@ display: none;
 }
     
 @media (max-width: 480px) {
+    html{
+    
+}
 .app-name-container{
         top: -2em;
     }
@@ -418,6 +421,10 @@ font-weight: bolder;
 .question-mark{
     font-size: 15pt;
     padding: 2px;
+}
+#map{
+    width: 90%;
+    height: 250px;
 }
 }
 
