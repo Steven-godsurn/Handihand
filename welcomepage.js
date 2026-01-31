@@ -22,6 +22,7 @@ const firebaseConfig = {
 
 const artisanBtn = document.getElementById("artisan-room");
 const serviceBtn = document.getElementById("service-room");
+const image = document.getElementById("hammerImg");
 const profidisplayContainer = document.getElementById("displaying");
 const workerBtnContainer = document.getElementById("worker-btn-div");
 const profiSelect = document.getElementById("skillSelect");
@@ -45,6 +46,7 @@ serviceBtn.addEventListener("click", (e) => {
  appName.style.display = "none";
  loginModal.style.display = "none";
  maps.style.display = "block";
+ image.style.display = "none"
 
  if("geolocation" in navigator){
     navigator.geolocation.getCurrentPosition(
@@ -102,7 +104,9 @@ async function professionalDisplay(skill){
         }
     }catch(err){
         console.error(err);
-        profidisplayContainer.innerHTML = `<p>Error loading workers. Try again later.<p/>`;
+        profidisplayContainer.innerHTML = `
+        <p>Error loading workers. Try again later.<p/><br>
+        <p>OR Firebase trial has expired!</p>`;
     }
 }
 
