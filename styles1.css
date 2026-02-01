@@ -279,25 +279,26 @@ display: none;
 }
 
 .now-displaying-div{
-    position: relative;
-    border: 2px solid;
-    border-radius: 4px;
-    margin-bottom: 0.4rem;
+    display: flex;
+    justify-content: center;
     width: 20em;
-    height: 15em;
+    height: 10em;
 }
 
 .now-displaying-text-div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     word-wrap: break-word;
-    margin-top: 4em;
     overflow-wrap: break-word;
 }
-
 .now-displaying-text{
     text-align: left;
     padding-bottom: 5px;
 }
-
+#nameStyle{
+    padding-top: 1rem;
+}
 .container{
     margin: auto;
     width: 5em;
@@ -346,23 +347,46 @@ display: none;
     padding-top: 25px;
 }
 
+/* displayed email and phone number */
+.displayedEmailDiv{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    cursor: pointer;  
+}
+#displayEmail{
+    position: relative;
+    top: -1px;
+    color: rgba(27, 9, 94, 0.308);
+    font-weight: bold;
+}
+.displayedPhoneDiv{
+    display: flex;
+    align-items: center;
+    gap: 0.5em ;
+    cursor: pointer;  
+}
+.displayPhoneNo{
+    color: rgba(27, 9, 94, 0.308);
+}
 /*map*/
-
 #map{
-    height: 400px;
+    height: 600px;
     width: 500px;
     height: 600px;
+    max-height: 50vh; 
     max-width: 1200px;
     border-radius: 20px;
-    margin-top: auto;
-    display: block;
+    display: inline-block;
 
 }
 
 .map-div{
     display: none;
-    justify-items: center;
-    margin-top: 15rem;
+    text-align: center;  
+    margin-top: 8rem;
+    width: 100%;  
+    padding: 0 1rem; 
 }
 
 /* Fix wrapper */
@@ -432,6 +456,11 @@ padding: 0;
        width: 100%;
        
     }
+     #map {
+        height: 300px;        /* smaller height on tablets/phones */
+        max-height: 50vh;     /* limit vertical stretching */
+        width: 90%;
+    }
 }
     
 @media (max-width: 480px) {
@@ -469,7 +498,9 @@ font-weight: bolder;
     font-size: 15pt;
     padding: 2px;
 }
-
+#map {
+        height: 300px;  
+    }
 }
 
 @media screen and (max-width: 460px) {

@@ -4,7 +4,7 @@
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
+2   
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyB7Ems5YjSzOaMultBBoev_foY81UFE1Tg",
@@ -90,14 +90,22 @@ async function professionalDisplay(skill){
             querySnapshot.forEach(doc => {
                 const p = doc.data();
                 profidisplayContainer.innerHTML += `
-            <div class="now-displaying-div">
-            <div class="container">
+                <div class="container" id="photoFix">
             ${p.photo ? `<img src="${p.photo}" alt="${p.firstName}" style="max-width:100px;"/>` : `<i class="bi bi-person-fill"></i>`}
             </div>
+            <div class="now-displaying-div">
             <div class="now-displaying-text-div">
-                <p class="now-displaying-text">Name: ${p.firstName} ${p.lastName}</p>
-                <p class="now-displaying-text">Email: ${p.Email  || 'N/A'}</p>
-                <p class="now-displaying-text">Phone: ${p.Mobile || 'N/A'}</p>
+                <p class="now-displaying-text" id="nameStyle">Name: ${p.firstName} ${p.lastName}</p>
+
+                <div class="displayedEmailDiv">
+                <i class="bi bi-envelope" id="displayEmail"></i>
+                <p class="now-displaying-text"> ${p.Email  || 'N/A'}</p>
+                </div>
+
+                <div class="displayedPhoneDiv">
+                <i class="bi bi-telephone" id="displayPhoneNo"></i>
+                <p class="now-displaying-text"> ${p.Mobile || 'N/A'}</p>
+                </div>
                 </div>
             </div>`;
             })

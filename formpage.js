@@ -231,7 +231,7 @@ if(file){
 }
 
 }catch (error){
-  console.error("Phot upload failed:", error.code || error.message); 
+  console.error("Photo upload failed:", error.code || error.message); 
   document.getElementById("successfull-msg").innerText = error.message || "An error occured while while uploading the photo.";
 }
 
